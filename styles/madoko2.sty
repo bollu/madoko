@@ -302,7 +302,12 @@
 % ---------------------------------------------------
 
 % expressions for various css units
+\ifdefined\dimeval
+% new in the kernel, override defn: https://tex.stackexchange.com/a/652103
+\renewcommand*\dimeval[1]{\dimexpr #1\relax}
+\else
 \newcommand*\dimeval[1]{\dimexpr #1\relax}
+\fi
 \newcommand*\dimpx[1]{#1\px}
 \newcommand*\dimrem[1]{#1\dim@rem}
 \newcommand*\dimch[1]{#1\dim@ch}
